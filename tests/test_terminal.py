@@ -177,4 +177,6 @@ class TestCursorAwareWindowWithExtraInput(unittest.TestCase):
     def test_report_extra_bytes(self):
         with self.window:
             pass # should have triggered getting initial cursor position
+        import time
+        time.sleep(1)
         self.assertEqual(b''.join(self.extra_bytes), b'qwerty\nasdf\nzxcv')
