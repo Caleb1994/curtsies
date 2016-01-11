@@ -121,7 +121,7 @@ class NopContext(object):
     def __exit__(*args): pass
 
 
-@skipUnless(sys.stdin.isatty(), 'blessings Terminal needs streams open')
+@skipUnless(sys.stdin.isatty() and sys.stdout.isatty(), 'blessings Terminal needs streams open')
 class TestCursorAwareWindow(unittest.TestCase):
     def setUp(self):
         self.screen = ReportingScreen(6, 3)
